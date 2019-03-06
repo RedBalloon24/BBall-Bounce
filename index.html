@@ -12,22 +12,35 @@
     <div class="game-intro">
         <h1>BBall Bounce</h1>
         <img src="./images/logo.png" alt="" class="logo-img">
-        <br><br>
-        <button id="start-button">StartGame</button>
-        <br> <br> <br> <br>     
+        <br><br>        
+        <audio src="audio/bounce.mp3" id="bounce"></audio>
+        <audio src="audio/swish.mp3" id="swish"></audio>
+        <audio src="audio/game-over.mp3" id="game-over"></audio>
+        <audio src="audio/monkey-drama.mp3" id="music"></audio>
     <div class="instructions">
         <ul>    
-            <li>Use the left &#8678 & right &#8680 arrows to control the player</li>
+            <li>Use the left &#8678 and right &#8680 arrows to control the player</li>
             <li>Bounce the ball into the hoop to score</li>       
         </ul>
     </div>
     </div>
-    <div id="game-board">
-        <canvas id="canvas" width="700" height="800"></canvas>
-        <div class="left"></div>
-        <div class="right"></div>
+    <div class="one-player">
+        <button id="one-player-button">1 Player Game</button><br><br><br>
+    </div>
+    <div class="two-players">
+        <button id="two-players-button">2 Player Game</button>
+    </div>
+    <div id="one-player-canvas">
+        <canvas id="canvasTwo" width="700" height="800"></canvas>
+    </div>
+    <div id="two-player-canvas">
+        <canvas id="canvasOne" width="700" height="800"></canvas>
     </div>
     </div>
-<script type="text/javascript" src="./scripts/main.js"></script>
+    <div class="footer">
+        
+    </div>
+    <script type="text/javascript" src="./scripts/main.js"></script>
+    
 </body>
 </html>

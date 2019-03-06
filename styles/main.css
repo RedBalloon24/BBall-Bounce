@@ -13,13 +13,14 @@ body {
   
   .game-intro {
     float: left;
+    width: 900px;
     padding: 0% 10%;
-    width: 500px;
+    width: 450px;
+
   }
   
   h1 {
-    font-size: 70px;
-    color: goldenrod;
+    font-size: 80px;
     padding-top: 15%;
     -webkit-text-stroke: 1px black;
     color: white;
@@ -43,27 +44,57 @@ body {
   }
   
 
-  body button {
+  #one-player-button,
+  #two-players-button {
     font-size: 30px;
-    background-color: #870007;
-    color: #fff;
+    background-color:#870007;
+    color: white;
     padding: 20px 40px;
-    border: 0;
-    box-shadow: 0;
-    border-radius: 5px;
+    border: solid 3px white;
+    border-radius: 25px;
     margin-bottom: 20px;
-  }
-  
-  #game-board {
-      float: right;
-      margin-top: 40px;
-      margin-right: 50px;
-      padding-right: 0px;
+    font-weight: bold;
   }
 
-  .left {
-    border-top: red 50px;
+  .one-player button {
+    float: left;
+    margin-top: 15%;
   }
-  /*#canvas {
-    background-image: url(../images/bball-court2.svg);
+  .two-players button {
+    margin-top: 20px;
+    margin-right: 40%;
+    float: left  
+}
+  #one-player-canvas {
+      margin-top: 5px;
+      margin-left: 60%;
+      padding-right: 0px;
+      position: absolute;
+  }
+
+  #two-player-canvas{
+    margin-top: 40px;
+    margin-left: 3%;
+    padding-right: 0px;
+    position: absolute;
+    float: right;
+}
+
+  /*#canvasOne {
+    border: blue 2px solid;
+  }*/
+  /*#canvasTwo {
+    border: red 2px solid;
+  }
+  
+  
+  /*#reset-button {
+    font-size: 30px;
+    color: black;
+    padding: 20px 40px;
+    border: 0;
+    border-color: black;
+    border-radius: 5px;
+    margin-top: 23%;
+    position: absolute;
   }*/
