@@ -53,7 +53,7 @@ Player.prototype.move = function(playerNumber) {
         }
     }
     if (playerNumber === 1){
-        document.onKeyDown = function(e) {
+        document.onkeydown = function(e) {
             switch(e.keyCode) {
                 case 39:  
                     this.right = true;
@@ -64,16 +64,16 @@ Player.prototype.move = function(playerNumber) {
             }  
         }.bind(this);
 
-        document.onKeyUp = function (e) {
+        document.onkeyup = function (e) {
             this.right = false;
             this.left = false;
         }.bind(this)
     
         if(this.right === true && this.x < this.game.canvases.width-this.width) {
-            this.x += 7;
+            this.x += 15;
         }
         if(this.left === true && this.x > 0) {
-            this.x -= 7;
+            this.x -= 15;
         }
     }
 }

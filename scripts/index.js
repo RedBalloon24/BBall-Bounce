@@ -3,17 +3,13 @@ window.onload = function() {
     game.start();
 
 
-
     document.getElementById("one-player-button").onclick = function () {
-        game.drawOne(1);
-        game.update();
+        game.drawOne(1);   
     };
     
     document.getElementById("two-players-button").onclick = function () {
         game.drawTwo(1);
         game.drawOne(0);
-        game.update();
-
     };
 
 };

@@ -10,7 +10,7 @@ function Game(player) {
     this.lives = 1;
     this.livesTwo = 3;
   
-    this.fps = 25;
+    this.fps = 45;
 
     this.court = new Court(this);
     this.backBoard = new BackBoard(this);
@@ -18,13 +18,8 @@ function Game(player) {
     this.ball = new Ball(this);
     this.player = new Player(this);
   
-  
-    setInterval(this.update, 20);
-
 }
     
-
-  
 
 Game.prototype.start = function() {
     this.court.drawCourt();
@@ -37,7 +32,6 @@ Game.prototype.start = function() {
         if (this.framesCounter > 1000) {
           this.framesCounter = 0;
         }
-        this.moveAll();
         this.drawOne(1);
 
     }.bind(this), 1000 / this.fps);
@@ -47,6 +41,67 @@ Game.prototype.stop = function() {
     clearInterval(this.interval);
 };
  
+Game.prototype.gameOver = function(playerNumber) {
+    this.number = playerNumber;
+    if (playerNumber === 0){
+    if(!this.lives) {
+        this.ctx.beginPath();
+        this.ctx.font = "50px Helvetica";
+        this.ctx.fillStyle = 'Black';
+        this.ctx.fillText('GAME OVER!!', this.canvases.width / 4, this.canvases.height / 2.3);
+        this.ctx.closePath();
+        this.ctx.beginPath();
+        this.ctx.font = "30px Helvetica";
+        this.ctx.fillStyle = 'Black';
+        this.ctx.fillText('Refresh to try again', this.canvases.width / 3.5, this.canvases.height / 2);
+        this.ctx.closePath();
+        this.stop(); 
+        }
+    }
+    if (playerNumber === 1){
+    if(!this.lives || !this.livesTwo && this.score > this.scoreTwo) {
+        this.ctx.beginPath();
+        this.ctx.font = "50px Helvetica";
+        this.ctx.fillStyle = 'Black';
+        this.ctx.fillText('GAME OVER!! PLAYER 1 WINS!!', this.canvases.width / 7, this.canvases.height / 2.3);
+        this.ctx.closePath();
+        this.ctx.beginPath();
+        this.ctx.font = "30px Helvetica";
+        this.ctx.fillStyle = 'Black';
+        this.ctx.fillText('Refresh to try again', this.canvases.width / 3.5, this.canvases.height / 2);
+        this.ctx.closePath();
+        this.stop(); 
+        }
+    if(!this.lives  || !this.livesTwo && this.score < this.scoreTwo) {
+        this.ctx.beginPath();
+        this.ctx.font = "50px Helvetica";
+        this.ctx.fillStyle = 'Black';
+        this.ctx.fillText('GAME OVER!! PLAYER 2 WINS', this.canvases.width / 7, this.canvases.height / 2.3);
+        this.ctx.closePath();
+        this.ctx.beginPath();
+        this.ctx.font = "30px Helvetica";
+        this.ctx.fillStyle = 'Black';
+        this.ctx.fillText('Refresh to try again', this.canvases.width / 3.5, this.canvases.height / 2);
+        this.ctx.closePath();
+        this.stop(); 
+        }
+    if(!this.lives  || !this.livesTwo && this.score == this.scoreTwo) {
+        this.ctx.beginPath();
+        this.ctx.font = "30px Helvetica";
+        this.ctx.fillStyle = 'Black';
+        this.ctx.fillText('GAME OVER!! DRAW!!', width / 4, height / 2.3);
+        this.ctx.closePath();
+        this.ctx.beginPath();
+        this.ctx.beginPath();
+        this.ctx.font = "30px Helvetica";
+        this.ctx.fillStyle = 'Black';
+        this.ctx.fillText('Refresh to try again', width / 3.5, height / 2);
+        this.ctx.closePath();
+        this.stop(); 
+        }
+    }
+};
+
 Game.prototype.clear = function() {
     this.ctx.clearRect(0, 0, this.canvases.width, this.canvases.height);
 }; 
@@ -76,13 +131,6 @@ Game.prototype.drawTwo = function(player) {
     this.player.move(1);
     this.drawScoreTwo();
     this.drawLivesTwo();
-};
-  
-Game.prototype.moveAll = function() {
-    this.player.move();
-    this.ball.move();
-    this.backBoard.drawBackBoard();
-
 };
   
 Game.prototype.drawScore = function() {
