@@ -1,11 +1,10 @@
 body {
     padding: 0;
     text-align: center;
-
-  }
+}
   
   .background-image {
-      background-image: url(../images/90582921d8ae228.jpg);
+      background-image: url(../images/background.jpg);
       background-size: cover;
       width: 100%;
       height: 900px;
@@ -13,10 +12,9 @@ body {
   
   .game-intro {
     float: left;
-    width: 900px;
-    padding: 0% 10%;
-    width: 450px;
-
+    padding-left: 10%;
+    padding-right: 135px;
+    width: 485px;
   }
   
   h1 {
@@ -60,11 +58,13 @@ body {
     float: left;
     margin-top: 15%;
   }
+
   .two-players button {
     margin-top: 20px;
     margin-right: 40%;
     float: left  
-}
+  }
+
   #one-player-canvas {
       margin-top: 5px;
       margin-left: 60%;
@@ -73,20 +73,28 @@ body {
   }
 
   #two-player-canvas{
-    margin-top: 40px;
+    margin-top: 5px;
     margin-left: 3%;
     padding-right: 0px;
     position: absolute;
     float: right;
-}
-
-  /*#canvasOne {
-    border: blue 2px solid;
-  }*/
-  /*#canvasTwo {
-    border: red 2px solid;
   }
-  
+
+/*#player-one-timer {
+  font-size: 20px;
+  color: black;
+  float: right;
+  margin-top: 65px;
+  margin-left: 61%;
+  position: absolute;
+}*/
+
+
+  footer{
+    color: white;
+    margin-top: 43%;
+    margin-left: 85%;
+  }
   
   /*#reset-button {
     font-size: 30px;

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Title</title>
+  <title>BBall Bounce</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet"  type="text/css" media="screen" href="./styles/main.css">
 </head>
@@ -11,16 +11,16 @@
     <div class="background-image">
     <div class="game-intro">
         <h1>BBall Bounce</h1>
-        <img src="./images/logo.png" alt="" class="logo-img">
         <br><br>        
         <audio src="audio/bounce.mp3" id="bounce"></audio>
         <audio src="audio/swish.mp3" id="swish"></audio>
         <audio src="audio/game-over.mp3" id="game-over"></audio>
         <audio src="audio/monkey-drama.mp3" id="music"></audio>
     <div class="instructions">
-        <ul>    
-            <li>Use the left &#8678 and right &#8680 arrows to control the player</li>
-            <li>Bounce the ball into the hoop to score</li>       
+        <ul>   
+            <li>Bounce the ball into the hoop to score</li>  
+            <li><font color ="blue">Player 1 controls:</font>  A (left) and D (right)</li>   
+            <li><font color ="red">Player 2 controls:</font>  &#8678 (left) and &#8680 (right)</li>     
         </ul>
     </div>
     </div>
@@ -35,12 +35,19 @@
     </div>
     <div id="two-player-canvas">
         <canvas id="canvasOne" width="700" height="800"></canvas>
+
     </div>
+    <footer>Created by Terraun Starkes 	&copy; 2019</footer>
     </div>
-    <div class="footer">
-        
-    </div>
-    <script type="text/javascript" src="./scripts/main.js"></script>
-    
+
+    <!--<script type="text/javascript" src="./scripts/main.js"></script>-->\
+    <script type="text/javascript" src="./scripts/court.js"></script>
+    <script type="text/javascript" src="./scripts/backboard.js"></script>
+    <script type="text/javascript" src="./scripts/hoop.js"></script>
+    <script type="text/javascript" src="./scripts/ball.js"></script>
+    <script type="text/javascript" src="./scripts/players.js"></script>
+    <script type="text/javascript" src="./scripts/game.js"></script>
+    <script type="text/javascript" src="./scripts/index.js"></script>
+
 </body>
 </html>
