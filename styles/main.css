@@ -80,29 +80,11 @@ body {
     float: right;
   }
 
-/*#player-one-timer {
-  font-size: 20px;
-  color: black;
-  float: right;
-  margin-top: 65px;
-  margin-left: 61%;
-  position: absolute;
-}*/
-
 
   footer{
     color: white;
     margin-top: 43%;
     margin-left: 85%;
+    margin-bottom: 0;
   }
   
-  /*#reset-button {
-    font-size: 30px;
-    color: black;
-    padding: 20px 40px;
-    border: 0;
-    border-color: black;
-    border-radius: 5px;
-    margin-top: 23%;
-    position: absolute;
-  }*/

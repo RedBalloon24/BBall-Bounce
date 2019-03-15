@@ -33,8 +33,6 @@ window.onload = function () {
     var backBoardWidthTwo = 178;
     var backBoardHeight = 30;
     var backBoardHeightTwo = 30;
-    var backBoardX = backBoardWidth + 83;
-    var backBoardY = backBoardHeight * 0;
     //CONTROL VARIABLES
     var rightOne = false;
     var rightTwo = false;  
@@ -46,8 +44,6 @@ window.onload = function () {
     //LIVES VARIABLES
     var lives = 3;
     var livesTwo = 3;
-
-
     drawCourt(1);
   
  
@@ -135,32 +131,26 @@ window.onload = function () {
 
 
     //BACKBOARDS 
-    
+    var backBoard = [];
+    backBoard = { x: 0, y: 0, status: 1 };
 
     function drawBackBoard () {
-        var soundSwish = true;
+        if(backBoard.status == 1) {
+            var backBoardX = 178 + 83;
+            var backBoardY = 30 * 0;
+            backBoard.x = backBoardX;
+            backBoard.y = backBoardY;
             ctx.beginPath();
             ctx.rect(backBoardX, backBoardY, 178, 30);
             ctx.fillStyle = "#E38E14";
             ctx.fill();
             ctx.closePath();
-            if(x > backBoardX && x < backBoardX + backBoardWidth && y > backBoardY && y < backBoardY + backBoardHeight) {
-                vy = -vy;
-                score++;
-                if (soundSwish) {
-                    soundTwo.pause();
-                    soundTwo.currentTime = 0;
-                    soundTwo.play();
-                    soundSwish = false;
-                } 
-            }
-        } 
-    
-    
+        }
+    }
+    var backBoardTwo = [];
+    backBoardTwo = { x2: 0, y2: 0, status: 1 };
 
     function drawBackBoardTwo(){
-        var backBoardTwo = [];
-        backBoardTwo = { x2: 0, y2: 0, status: 1 };
         if(backBoardTwo.status == 1) {
             var backBoardTwoX = 178 + 83;
             var backBoardTwoY = 30 * 0;
@@ -172,6 +162,28 @@ window.onload = function () {
             ctx.fill();
             ctx.closePath();
         }
+    }
+  
+
+    //COLLISION DETECTION
+    function collisionDetection() {
+        var soundSwish = true;
+        var b = backBoard;
+        if(b.status == 1) {
+            if(x > b.x && x < b.x + backBoardWidth && y > b.y && y < b.y + backBoardHeight) {
+                vy = -vy;
+                b.status = 1;
+                score++;
+                if (soundSwish) {
+                    soundTwo.pause();
+                    soundTwo.currentTime = 0;
+                    soundTwo.play();
+                    soundSwish = false;
+                } 
+            }
+        }  
+    }
+    function collisionDetectionTwo() {
         var soundSwish = true;
         var c = backBoardTwo
         if(c.status == 1) {
@@ -186,12 +198,7 @@ window.onload = function () {
                     soundSwish = false;
                 }
             }
-        } 
-    }
-  
-
-    function collisionDetectionTwo() {
-        
+        }  
     }
   
 
@@ -278,7 +285,7 @@ window.onload = function () {
         if(e.key == "a") {
             leftOne = true;
         }
-        else if(e.key == "ArrowLeft") {
+        if(e.key == "ArrowLeft") {
             leftTwo = true;
         }
     }
@@ -289,10 +296,10 @@ window.onload = function () {
         if(e.key == "ArrowRight") {
             rightTwo = false;
         }
-        else if(e.key == "a") {
+        if(e.key == "a") {
             leftOne = false;
         }
-        else if(e.key == "ArrowLeft") {
+        if(e.key == "ArrowLeft") {
             leftTwo = false;
         }
     }  
@@ -308,6 +315,7 @@ window.onload = function () {
         drawPlayer();
         drawScore();
         drawLives();
+        //collisionDetection();
        
         var soundBounce = true;
         var soundGameOver = true;
@@ -320,6 +328,11 @@ window.onload = function () {
                 sound.play();
                 soundBounce = false;
             }
+        }
+        
+        if(x > 261 && x < 439 && y > 0 && y < 30) {
+            vy = -vy;
+            score++;
         }
         if(y + vy < ballRadius) {
             vy = -vy;

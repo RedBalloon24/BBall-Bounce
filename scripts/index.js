@@ -4,12 +4,13 @@ window.onload = function() {
 
 
     document.getElementById("one-player-button").onclick = function () {
-        game.drawOne(1);   
+        game.moveOne();
     };
     
     document.getElementById("two-players-button").onclick = function () {
-        game.drawTwo(1);
-        game.drawOne(0);
+       
+        game.moveTwo();
+
     };
 
 };
