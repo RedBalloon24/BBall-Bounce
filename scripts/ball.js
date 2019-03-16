@@ -25,35 +25,31 @@ Ball.prototype.move = function(playerNumber){
     if((this.x + this.vx) > (this.game.canvases.width-this.radius) || (this.x + this.vx) < this.radius) {
         this.vx = -this.vx;
     }
-
     if(this.x > 261 && this.x < 439 && this.y > 0 && this.y < 30) {
         this.vy = -this.vy;
         this.game.score++;
     }
-    
     if((this.y + this.vy) < this.radius) {
         this.vy = -this.vy;
-      
     }
     else if((this.y + this.vy) > (this.game.canvases.height-this.radius)) {
         if(this.x > this.game.player.x && this.x < (this.game.player.x + this.game.player.width)) {
             this.vy = -this.vy;
-      
         }
         else {
             this.game.lives--;
-            if(!this.lives) {
-                this.ctx.beginPath();
-                this.ctx.font = "50px Helvetica";
-                this.ctx.fillStyle = 'Black';
-                this.ctx.fillText('GAME OVER!!', this.canvases.width / 4, this.canvases.height / 2.3);
-                this.ctx.closePath();
-                this.ctx.beginPath();
-                this.ctx.font = "30px Helvetica";
-                this.ctx.fillStyle = 'Black';
-                this.ctx.fillText('Refresh to try again', this.canvases.width / 3.5, this.canvases.height / 2);
-                this.ctx.closePath();
-                this.stop(); 
+            if(!this.game.lives) {
+                this.game.ctx.beginPath();
+                this.game.ctx.font = "50px Helvetica";
+                this.game.ctx.fillStyle = 'Black';
+                this.game.ctx.fillText('GAME OVER!!', this.game.canvases.width / 4, this.game.canvases.height / 2.3);
+                this.game.ctx.closePath();
+                this.game.ctx.beginPath();
+                this.game.ctx.font = "30px Helvetica";
+                this.game.ctx.fillStyle = 'Black';
+                this.game.ctx.fillText('Refresh to try again', this.game.canvases.width / 3.5, this.game.canvases.height / 2);
+                this.game.ctx.closePath();
+                this.game.stop(); 
             }
             else {
                 this.x = this.game.canvases.width/2;
@@ -71,12 +67,10 @@ Ball.prototype.move = function(playerNumber){
         if((this.x + this.vx) > (this.game.canvases.width-this.radius) || (this.x + this.vx) < this.radius) {
             this.vx = -this.vx;
         }
-    
         if(this.x > 261 && this.x < 439 && this.y > 0 && this.y < 30) {
             this.vy = -this.vy;
             this.game.scoreTwo++;
         }
-        
         if((this.y + this.vy) < this.radius) {
             this.vy = -this.vy;
           
@@ -127,9 +121,7 @@ Ball.prototype.move = function(playerNumber){
                         this.game.ctx.fillText('Refresh to try again', this.game.canvases.width / 3.5, this.game.canvases.height / 2);
                         this.game.ctx.closePath();
                         this.game.stop(); 
-                        }
-                
-                
+                        }                
                 else {
                     this.x = this.game.canvases.width/2;
                     this.y = this.game.canvases.height-30;
@@ -142,24 +134,20 @@ Ball.prototype.move = function(playerNumber){
         this.x += this.vx;
         this.y += this.vy; 
     }
-    if (playerNumber === 3){
+    if (playerNumber === 2){
         if((this.x + this.vx) > (this.game.canvases.width-this.radius) || (this.x + this.vx) < this.radius) {
             this.vx = -this.vx;
         }
-    
         if(this.x > 261 && this.x < 439 && this.y > 0 && this.y < 30) {
             this.vy = -this.vy;
             this.game.score++;
         }
-        
         if((this.y + this.vy) < this.radius) {
             this.vy = -this.vy;
-          
         }
         else if((this.y + this.vy) > (this.game.canvases.height-this.radius)) {
             if(this.x > this.game.player.x && this.x < (this.game.player.x + this.game.player.width)) {
                 this.vy = -this.vy;
-          
             }
             else {
                 this.game.lives--;
@@ -202,8 +190,7 @@ Ball.prototype.move = function(playerNumber){
                         this.game.ctx.fillText('Refresh to try again', this.game.canvases.width / 3.5, this.game.canvases.height / 2);
                         this.game.ctx.closePath();
                         this.game.stop(); 
-                        }
-                                   
+                        }         
                 else {
                     this.x = this.game.canvases.width/2;
                     this.y = this.game.canvases.height-30;

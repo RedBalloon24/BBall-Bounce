@@ -315,7 +315,7 @@ window.onload = function () {
         drawPlayer();
         drawScore();
         drawLives();
-        //collisionDetection();
+        collisionDetection();
        
         var soundBounce = true;
         var soundGameOver = true;
@@ -330,10 +330,7 @@ window.onload = function () {
             }
         }
         
-        if(x > 261 && x < 439 && y > 0 && y < 30) {
-            vy = -vy;
-            score++;
-        }
+        
         if(y + vy < ballRadius) {
             vy = -vy;
             if (soundBounce) {
@@ -632,14 +629,15 @@ window.onload = function () {
             playerX += 7;
         }
         else if(rightTwo && player2X < width-player2Width) {
-                player2X += 7;
-            }
-        else if(leftTwo && player2X > 0) {
-                player2X -= 7;
-            }        
+            player2X += 7;
+        }
         else if(leftOne && playerX > 0) {
             playerX -= 7;
         }
+        else if(leftTwo && player2X > 0) {
+            player2X -= 7;
+        }        
+       
     
         x += vx;
         y += vy;    
@@ -661,4 +659,3 @@ window.onload = function () {
         music.play();
     };
 }
-  

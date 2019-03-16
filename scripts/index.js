@@ -8,7 +8,6 @@ window.onload = function() {
     };
     
     document.getElementById("two-players-button").onclick = function () {
-       
         game.moveTwo();
 
     };

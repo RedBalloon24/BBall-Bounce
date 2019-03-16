@@ -25,7 +25,7 @@ BackBoard.prototype.drawBackBoard = function (playerNumber) {
         this.number = playerNumber;
         this.game.ctx.beginPath();
         this.game.ctx.rect(this.boardX, this.boardY, this.width,this.height);
-        this.game.ctx.fillStyle = "blue";
+        this.game.ctx.fillStyle = "#E38E14";
         this.game.ctx.fill();
         this.game.ctx.closePath();
     }
@@ -33,7 +33,7 @@ BackBoard.prototype.drawBackBoard = function (playerNumber) {
         this.number = playerNumber;
         this.game.ctx.beginPath();
         this.game.ctx.rect(this.boardXTwo, this.boardYTwo, this.widthTwo,this.heightTwo);
-        this.game.ctx.fillStyle = "red";
+        this.game.ctx.fillStyle = "#E38E14";
         this.game.ctx.fill();
         this.game.ctx.closePath();
     }

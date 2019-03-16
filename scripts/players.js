@@ -31,7 +31,7 @@ Player.prototype.drawPlayer = function(playerNumber){
 Player.prototype.move = function(playerNumber) {
     this.number = playerNumber;
     if (playerNumber == 0){
-        document.onkeydown = function (e) {
+        document.onkeydown = function(e) {
             switch(e.keyCode) {
                 case 68:  
                     this.right = true;
@@ -41,7 +41,7 @@ Player.prototype.move = function(playerNumber) {
                     break
             }  
         }.bind(this)
-
+        
         document.onkeyup = function(e) {
             this.right = false;
             this.left = false;
@@ -66,7 +66,7 @@ Player.prototype.move = function(playerNumber) {
             }  
         }.bind(this);
 
-        document.onkeyup = function (e) {
+        document.onkeyup = function(e) {
             this.rightTwo = false;
             this.leftTwo = false;
         }.bind(this)
@@ -102,8 +102,7 @@ Player.prototype.move = function(playerNumber) {
             this.rightTwo = false;
             this.leftTwo = false;
         }.bind(this)
-    
-           
+               
         if(this.right == true && this.x < this.game.canvases.width-this.width) {
             this.x += 15;
         }

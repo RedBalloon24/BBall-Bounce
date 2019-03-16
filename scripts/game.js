@@ -29,6 +29,7 @@ Game.prototype.start = function() {
 };
 
 Game.prototype.moveOne = function() {
+
     this.interval = setInterval(function() {
         this.clear();
     
@@ -43,6 +44,7 @@ Game.prototype.moveOne = function() {
 };
 
 Game.prototype.moveTwo = function() {
+
     this.interval = setInterval(function() {
         this.clear();
     
@@ -83,7 +85,7 @@ Game.prototype.drawOneB = function(player) {
     this.backBoardOne.drawBackBoard(0);
     this.hoopOne.drawHoop();
     this.ballOne.drawBall(0);   
-    this.ballOne.move(3);   
+    this.ballOne.move(2);   
     this.player.drawPlayer(0);
     this.player.move(0);
     this.drawScore();
