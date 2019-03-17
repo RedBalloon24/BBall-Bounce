@@ -12,6 +12,7 @@ function Player(game){
 
 Player.prototype.drawPlayer = function(playerNumber){
     this.number = playerNumber;
+
     if (playerNumber === 0){
         this.game.ctx.beginPath();
         this.game.ctx.rect(this.x, this.game.canvases.height-this.height, this.width, this.height);
@@ -35,9 +36,11 @@ Player.prototype.move = function(playerNumber) {
             switch(e.keyCode) {
                 case 68:  
                     this.right = true;
+                    this.left = false;
                     break
                 case 65:  
                     this.left = true;
+                    this.right = false;
                     break
             }  
         }.bind(this)
@@ -59,9 +62,12 @@ Player.prototype.move = function(playerNumber) {
             switch(e.keyCode) {
                 case 39:  
                     this.rightTwo = true;
+                    this.leftTwo = false;
                     break
                 case 37:  
                     this.leftTwo = true;
+                    this.rightTwo = false;
+
                     break
             }  
         }.bind(this);
@@ -78,20 +84,32 @@ Player.prototype.move = function(playerNumber) {
             this.x -= 15;
         }
     }
-    if (playerNumber == 3){
+    if (playerNumber == 2){
         document.onkeydown = function(e) {
             switch(e.keyCode) {
                 case 68:  
                     this.right = true;
+                    if(this.right == true && this.x < this.game.canvases.width-this.width) {
+                        this.x += 15;
+                    }
                     break
                 case 65:  
                     this.left = true;
+                    if(this.left == true && this.x > 0) {
+                        this.x -= 15;
+                    }
                     break
                 case 39:  
-                    this.right = true;
+                    this.rightTwo = true;
+                    if(this.rightTwo == true && this.x < this.game.canvases.width-this.width) {
+                        this.x += 15;
+                    }
                     break
                 case 37:  
-                    this.left = true;
+                    this.leftTwo = true;
+                    if(this.leftTwo == true && this.x > 0) {
+                    this.x -= 15;
+                    }
                     break
             }  
         }.bind(this);
@@ -103,17 +121,9 @@ Player.prototype.move = function(playerNumber) {
             this.leftTwo = false;
         }.bind(this)
                
-        if(this.right == true && this.x < this.game.canvases.width-this.width) {
-            this.x += 15;
-        }
-        else if(this.left == true && this.x > 0) {
-            this.x -= 15;
-        }
-        else if(this.rightTwo == true && this.x < this.game.canvases.width-this.width) {
-            this.x += 15;
-        }
-        else if(this.leftTwo == true && this.x > 0) {
-            this.x -= 15;
-        }
+         
     }
 }
+
+
+

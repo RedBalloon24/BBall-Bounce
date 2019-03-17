@@ -628,13 +628,14 @@ window.onload = function () {
         if(rightOne && playerX < width-playerWidth) {
             playerX += 7;
         }
-        else if(rightTwo && player2X < width-player2Width) {
-            player2X += 7;
-        }
-        else if(leftOne && playerX > 0) {
+          if(leftOne && playerX > 0) {
             playerX -= 7;
         }
-        else if(leftTwo && player2X > 0) {
+         if(rightTwo && player2X < width-player2Width) {
+            player2X += 7;
+        }
+       
+         if(leftTwo && player2X > 0) {
             player2X -= 7;
         }        
        
